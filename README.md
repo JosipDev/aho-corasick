@@ -8,7 +8,7 @@ Personally, I found these three short videos to be very explanatory when I searc
 
 ## Implementation
 
-The implementation is intentionally kept as light-weight as possible as the whole trie (dictionary) is kept in memory while the input pattern is parsed. Each trie node stores a container (unordered_map) containing all child nodes, a pointer to the fail node and a pointer (unique_ptr) to an object stored for each match. The API is flexible to enable a wide range of applications and to keep the trie size minimal for each application.
+The implementation is intentionally kept as light-weight as possible as the whole trie (dictionary) is kept in memory while the input pattern is parsed. Each trie node stores a container (unordered_map) containing all child nodes, a pointer to the fail node and a pointer (unique_ptr) to an object stored for each match. The API is designed to be flexible for two resaons: to enable a wide range of applications and to keep the trie size minimal for each of these applications, as will become clear fromt he examples.
 
 ## Usage
 
