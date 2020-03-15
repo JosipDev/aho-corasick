@@ -60,7 +60,7 @@ which is calculated using an unary predicate passed to the addPattern member fun
 The input pattern is processed using the match memeber function, which 
 takes a reference to a container or a range of iterators and an binary predicate as arguments.
 The binary predicate is called on each match with the previously stored match object and iterator
-to the current position in the pattern as input argument.
+to the current position in the pattern as input argument. This might help to reduce the size of the match object, as alternatively the whole match pattern had to be stored to achieve this functionality. The match member function continues matching if the binary predicate returns true, otherwise it returns after the first match.
 
 ```cpp
 string text = {aaaabccadjbabaabad}
@@ -72,7 +72,3 @@ or
 ```cpp
 match("aaaabccadjbabaabad", [](InputIt pos, int len){string m(pos - len, pos); cout << m << endl; return true;});
 ```
-
-It continues the matching if the unary predicate returns true, otherwise it returns after the first match.
-Please note that the current position in the pattern can be captured by reference from the iterator.
-This might help to reduce the size of the match object, as alternatively the whole match pattern had to be stored for the whole functionality.
