@@ -1,12 +1,8 @@
 # Aho-Corasick pattern matching algorithm (C++)
 
-This is a C++ implementation of the popular pattern matching algorithm published by [Alfred V. Aho and Margaret J. Corasick in 1975](https://dl.acm.org/doi/10.1145/360825.360855).
-
-It matches an input pattern against a dictionary of words with linear time (O(n)) and O(m) space complexity where n is the length of the input pattern and m the combined length of all the search patterns in the dictionary.
-
+This is a C++ implementation of the popular pattern matching algorithm published by [Alfred V. Aho and Margaret J. Corasick in 1975](https://dl.acm.org/doi/10.1145/360825.360855). It matches an input pattern against a dictionary of words with linear time (O(n)) and O(m) space complexity where n is the length of the input pattern and m the combined length of all the search patterns in the dictionary.
 The algorithm is based on traversing a trie structure, which reflects a dictionary of searchable words. Each trie node represents a state, i.e. characters of the words in the dicitionary. When parsing an input pattern, each new character of the input pattern is searched among the child nodes of the current state in the trie starting from the root node. If the character is found, the state is updated to the new state (character), if not, the state is updated to a fail state, which represents the longest prefix of the pattern that could potentially still be found in the dictionary. For each search pattern in the dictionary, an object is stored in the matching state, i.e. the last character of the search pattern. It is either returned or a function is called using it as input parameter as is the case in this implementation.
-
-Personally, I found these three short videos to be very explanatory when I searched how the algorithm works: [building trie](https://www.youtube.com/watch?v=ePafMI_rSJg), [building fail paths](https://www.youtube.com/watch?v=qPyhPXPl3T4), and [pattern matching](https://www.youtube.com/watch?v=IcXimoT_YXA).
+Personally, I found these three short videos to be very explanatory when I searched for the algorithm: [building trie](https://www.youtube.com/watch?v=ePafMI_rSJg), [building fail paths](https://www.youtube.com/watch?v=qPyhPXPl3T4), and [pattern matching](https://www.youtube.com/watch?v=IcXimoT_YXA).
 
 ## Implementation
 
