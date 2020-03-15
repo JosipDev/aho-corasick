@@ -16,6 +16,7 @@ The trie object can be created using the default constructor adding the search p
 
 ```cpp
 auto matchObj = [](const string& s){return s.size()};
+
 AhoCorasick AC;
 AC.addPattern("a", matchObj);
 AC.addPattern("ab", matchObj);
@@ -27,7 +28,9 @@ using an iterator range:
 
 ```cpp
 auto matchObj = [](const string& s){return s.size()};
+
 vector<string> dict = {"a", "ab", "aab"};
+
 AhoCorasick AC;
 AC.addPattern(dict.begin(), dict.end(), matchObj);
 ```
@@ -36,7 +39,9 @@ or, it can be constructed directly:
 
 ```cpp
 auto matchObj = [](const string& s){return s.size()};
+
 vector<string> dict = {"a", "ab", "aab"};
+
 AhoCorasick AC(dict.begin(), dict.end(), matchObj);
 ```
 
@@ -46,6 +51,7 @@ The input pattern is processed using the match memeber function, which takes a r
 
 ```cpp
 string text = {aaaabccadjbabaabad};
+
 match(text.begin(), text.end(), [](InputIt pos, int len){
 string m(pos - len, pos); cout << m << endl; return true;
 });
