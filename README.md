@@ -27,22 +27,18 @@ AC.prepare();
 using an iterator range:
 
 ```cpp
-auto matchObj = [](const string& s){return s.size()};
-
 vector<string> dict = {"a", "ab", "aab"};
 
 AhoCorasick AC;
-AC.addPattern(dict.begin(), dict.end(), matchObj);
+AC.addPattern(dict.begin(), dict.end(), [](const string& s){return s.size()});
 ```
 
 or, it can be constructed directly:
 
 ```cpp
-auto matchObj = [](const string& s){return s.size()};
-
 vector<string> dict = {"a", "ab", "aab"};
 
-AhoCorasick AC(dict.begin(), dict.end(), matchObj);
+AhoCorasick AC(dict.begin(), dict.end(), [](const string& s){return s.size()});
 ```
 
 For each search pattern, an object is stored in the corresponding trie state, which is calculated using an unary predicate passed to the addPattern member function or contructor.
