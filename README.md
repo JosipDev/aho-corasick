@@ -64,11 +64,15 @@ to the current position in the pattern as input argument. This might help to red
 
 ```cpp
 string text = {aaaabccadjbabaabad}
-match(text.begin(), text.end(), [](InputIt pos, int len){string m(pos - len, pos); cout << m << endl; return true;});
+match(text.begin(), text.end(), [](InputIt pos, int len){
+string m(pos - len, pos); cout << m << endl; return true;
+});
 ```
 
 or 
 
 ```cpp
-match("aaaabccadjbabaabad", [](InputIt pos, int len){string m(pos - len, pos); cout << m << endl; return true;});
+match("aaaabccadjbabaabad", [](InputIt pos, int len){
+string m(pos - len, pos); cout << m << endl; return true;
+});
 ```
