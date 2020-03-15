@@ -42,19 +42,11 @@ AhoCorasick AC(dict.begin(), dict.end(), matchObj);
 
 For each search pattern, an object is stored in the corresponding trie state, which is calculated using an unary predicate passed to the addPattern member function or contructor.
 
-The input pattern is processed using the match memeber function, which takes a reference to a container or a range of iterators and an binary predicate as arguments. The binary predicate is called on each match with the previously stored match object and iterator to the current position in the pattern as input argument. This might help to reduce the size of the match object, as alternatively the whole match pattern had to be stored to achieve this functionality. The match member function continues matching if the binary predicate returns true, otherwise it returns after the first match.
+The input pattern is processed using the match memeber function, which takes a range of iterators and an binary predicate as arguments. The binary predicate is called on each match with the previously stored match object and iterator to the current position in the pattern as input arguments. It is designed in this way in order to reduce the size of the match object, as alternatively the whole match pattern had to be stored to achieve this type of functionality. The match member function continues matching if the binary predicate returns true, otherwise it returns after the first match.
 
 ```cpp
 string text = {aaaabccadjbabaabad};
 match(text.begin(), text.end(), [](InputIt pos, int len){
-string m(pos - len, pos); cout << m << endl; return true;
-});
-```
-
-or 
-
-```cpp
-match("aaaabccadjbabaabad", [](InputIt pos, int len){
 string m(pos - len, pos); cout << m << endl; return true;
 });
 ```
